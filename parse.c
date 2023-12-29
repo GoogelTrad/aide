@@ -64,10 +64,6 @@ void	take_fork(t_philo *philo)
 	else
 		pthread_mutex_lock(&philo->fork[philo->philo_n]);
 	print_status(philo, philo->philo_n, "has taken a fork\n");
-	pthread_mutex_lock(&philo->data->mutex_die);
-	if (philo->status == 1)
-		return ;
-	pthread_mutex_unlock(&philo->data->mutex_die);
 	if (philo->data->philo_nbr == 1)
 	{
 		print_status(philo, philo->philo_n, "is died\n");
